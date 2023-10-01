@@ -3,6 +3,7 @@
 	"author": "Rudy Rivera",
 	"description": "-Insert package description here-",
 	"keywords": ["practice", "challenge", "freecodecamp"],
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
