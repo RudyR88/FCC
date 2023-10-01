@@ -2,6 +2,7 @@
 	"name": "fcc-learn-npm-package-json",
 	"author": "Rudy Rivera",
 	"description": "-Insert package description here-",
+	"keywords": ["practice", "challenge", "freecodecamp"],
 	"dependencies": {
 		"express": "^4.14.0"
 	},
