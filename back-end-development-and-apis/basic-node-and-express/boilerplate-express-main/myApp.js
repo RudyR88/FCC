@@ -10,11 +10,12 @@ let app = express();
 //     res.send('Hello Express');
 // });
 
+// Challenge #3
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html')
-})
-
-
+    res.sendFile(__dirname + '/views/index.html');
+    // Challenge #4
+    app.use('/public', express.static(__dirname + '/public'));
+});
 
 
 
