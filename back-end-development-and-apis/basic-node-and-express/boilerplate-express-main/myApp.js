@@ -1,6 +1,12 @@
 let express = require('express');
 let app = express();
-console.log("Hello World");
+
+// Challenge #1
+// console.log("Hello World");
+
+app.get('/', (req, res) => {
+    res.send('Hello Express');
+});
 
 
 
