@@ -1,5 +1,6 @@
 // Challenge #6.a
 // require('dotenv').config();
+const bodyParser = require('body-parser');
 
 let express = require('express');
 let app = express();
@@ -52,10 +53,14 @@ let app = express();
 // });
 
 //Challenge #10
-app.get('/name', (req, res) => {
-    const {first : firstName, last : lastName} = req.query;
-    res.json({name: `${firstName} ${lastName}`});
-});
+// app.get('/name', (req, res) => {
+//     const {first : firstName, last : lastName} = req.query;
+//     res.json({name: `${firstName} ${lastName}`});
+// });
+
+//Challenge #11
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 
 
