@@ -1,5 +1,9 @@
+// Challenge #6.a
+require('dotenv').config();
+
 let express = require('express');
 let app = express();
+let message = "Hello json";
 
 
 // Challenge #1
@@ -19,10 +23,14 @@ let app = express();
 
 // Challenge #5
 app.get('/json', (req, res) => {
-    res.json({message: "Hello json"});
+    // Challenge #6.b
+    if(process.env["MESSAGE_STYLE"] == "uppercase"){
+        res.json({"message": message.toUpperCase});
+    }
+    else{
+        res.json({"message": message});
+    }
 })
-
-
 
 
 
