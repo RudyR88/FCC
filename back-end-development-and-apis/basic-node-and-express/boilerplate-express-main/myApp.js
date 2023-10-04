@@ -33,10 +33,18 @@ let app = express();
 // })
 
 // Challenge #7
-app.use((req, res, next) => {
-    console.log(`${req.method} ${req.path} - ${req.ip}`)
+// app.use((req, res, next) => {
+//     console.log(`${req.method} ${req.path} - ${req.ip}`)
+//     next();
+// })
+
+// Challenge #8
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
     next();
-})
+}, (req, res) => {[
+    res.json({time: req.time})
+]})
 
 
 
