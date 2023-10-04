@@ -16,11 +16,11 @@ let app = express();
 // });
 
 // Challenge #3
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/views/index.html');
-//     // Challenge #4
-//     app.use('/public', express.static(__dirname + '/public'));
-// });
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+    // Challenge #4
+    app.use('/public', express.static(__dirname + '/public'));
+});
 
 // Challenge #5
 // app.get('/json', (req, res) => {
@@ -61,6 +61,11 @@ let app = express();
 //Challenge #11
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+//Challenge #12
+app.post('/name', (req, res) => {
+    res.json({name: `${req.body.first} ${req.body.last}`});
+})
 
 
 
