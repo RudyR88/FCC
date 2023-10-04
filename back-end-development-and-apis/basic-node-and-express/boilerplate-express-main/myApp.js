@@ -47,8 +47,14 @@ let app = express();
 // });
 
 // Challenge #9
-app.get('/:word/echo', (req, res) => {
-    res.json({echo: req.params.word});
+// app.get('/:word/echo', (req, res) => {
+//     res.json({echo: req.params.word});
+// });
+
+//Challenge #10
+app.get('/name', (req, res) => {
+    const {first : firstName, last : lastName} = req.query;
+    res.json({name: `${firstName} ${lastName}`});
 });
 
 
