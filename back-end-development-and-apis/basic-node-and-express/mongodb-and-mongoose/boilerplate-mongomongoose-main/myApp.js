@@ -1,10 +1,21 @@
 require('dotenv').config();
-//Challenge 1
+// Challenge #1.a
 const mongoose = require('mongoose');
+
+// Challenge #2.a
+const Schema = mongoose.Schema;
+
+// Challenge #1.b
 mongoose.connect(process.env.MONGO_URI);
 
+// Challenge #2.b
+const personSchema = new Schema({
+  name: {type: String, required: true},
+  age: Number,
+  favoriteFoods: [String]
+});
 
-let Person;
+const Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
