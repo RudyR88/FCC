@@ -83,10 +83,13 @@ const findEditThenSave = (personId, done) => {
   });
 };
 
+// Challenge #9
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-
-  done(null /*, data*/);
+  mongoose.set('useFindAndModify', false);
+  Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (err, data) => {
+    err ? console.log(err) : done(null, data);
+  });
 };
 
 const removeById = (personId, done) => {
