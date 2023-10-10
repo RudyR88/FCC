@@ -52,15 +52,17 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 // Challenge #5
-const personName = "Spencer Sean";
 const findPeopleByName = (personName, done) => {
   Person.find({name: personName}, (err, data) => {
     err ? console.log(err) : done(null, data);
   });
 };
 
+// Challenge #6
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({favoriteFoods: [food]}, (err, data) => {
+    err ? console.log(err) : done(null, data);
+  });
 };
 
 const findPersonById = (personId, done) => {
