@@ -26,8 +26,29 @@ const createAndSavePerson = (done) => {
   });
 };
 
+// Challenge #4
+const arrayOfPeople = [
+  {
+    name: "Patty La-bu",
+    age: 54,
+    favoriteFoods: ["fried fish"]
+  },
+  {
+    name: "Spencer Sean",
+    age: 55,
+    favoriteFoods: ["chicken wings", "tacos"]
+  },
+  {
+    name: "Charlie Brown",
+    age: 120,
+    favoriteFoods: ["peanuts"]
+  }
+]
+
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+  Person.create(arrayOfPeople, (err, data) => {
+    err ? console.log(err) : done(null, data);
+  });
 };
 
 const findPeopleByName = (personName, done) => {
