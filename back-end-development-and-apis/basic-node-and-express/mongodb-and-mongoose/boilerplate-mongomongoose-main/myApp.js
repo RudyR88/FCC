@@ -3,6 +3,9 @@ require('dotenv').config();
 // Challenge #1.a
 const mongoose = require('mongoose');
 
+// Challenge #9, 10
+mongoose.set('useFindAndModify', false);
+
 // Challenge #2.a
 const Schema = mongoose.Schema;
 
@@ -93,7 +96,9 @@ const findAndUpdate = (personName, done) => {
 };
 
 const removeById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findByIdAndRemove(personId, (err, data) => {
+    err ? console.log(err) : done(null, data);
+  });
 };
 
 const removeManyPeople = (done) => {
