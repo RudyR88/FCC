@@ -72,10 +72,15 @@ const findPersonById = (personId, done) => {
   });
 };
 
+// Challenge #8
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
-
-  done(null /*, data*/);
+  Person.findById(personId, (err, person) => {
+    err ? console.log(err) : person.favoriteFoods.push(foodToAdd);
+    person.save((err, data) => {
+      err ? console.log(err) : done(null, data);
+    });
+  });
 };
 
 const findAndUpdate = (personName, done) => {
