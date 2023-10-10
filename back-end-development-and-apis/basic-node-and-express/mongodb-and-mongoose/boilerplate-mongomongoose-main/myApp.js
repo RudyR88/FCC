@@ -89,22 +89,24 @@ const findEditThenSave = (personId, done) => {
 // Challenge #9
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-  mongoose.set('useFindAndModify', false);
   Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (err, data) => {
     err ? console.log(err) : done(null, data);
   });
 };
 
+// Challenge #10
 const removeById = (personId, done) => {
   Person.findByIdAndRemove(personId, (err, data) => {
     err ? console.log(err) : done(null, data);
   });
 };
 
+// Challenge #11
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
-  done(null /*, data*/);
+  Person.remove({name: nameToRemove}, (err, data) => {
+    err ? console.log(err) : done(null, data);
+  });
 };
 
 const queryChain = (done) => {
