@@ -45,7 +45,7 @@ app.route('/login').post(passport.authenticate('local', {failureRedirect: '/'}),
 })
 
 app.route('/profile').get(ensureAuthenticated, (req, res) => {
-  res.render('profile');
+  res.render('profile', {username: req.user.username});
 })
 
   passport.use(new LocalStrategy((username, password, done) => {
