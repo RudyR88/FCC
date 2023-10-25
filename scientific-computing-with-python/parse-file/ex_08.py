@@ -1,8 +1,9 @@
-theFile = open('mbox-short.txt')
+file = open('mbox-short.txt')
 
-for line in theFile:
+for line in file:
     line = line.rstrip()
     words = line.split()
-    if words[0] != 'From':
+    # guardian compound statement
+    if len(words) < 3 or words[0] != 'From':
         continue
     print(words[2])
